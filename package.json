@@ -1,0 +1,23 @@
+{
+  "name": "adopt-me",
+  "version": "1.0.0",
+  "description": "Brian Holt 7hr React tutorial Part 1",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"src/**/*.{js,jsx}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blake-Hansen/adopt-me.git"
+  },
+  "keywords": [],
+  "author": "Blake Hansen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blake-Hansen/adopt-me/issues"
+  },
+  "homepage": "https://github.com/blake-Hansen/adopt-me#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
+}
