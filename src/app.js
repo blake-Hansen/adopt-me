@@ -1,34 +1,29 @@
-/* global React ReactDOM */
+import  { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { render } from 'react-dom';
+import { StrictMode, useState } from "react"
+import SearchParams from './SearchParams';
+import Details from './Details'
+import ThemeContext from './ThemeContext'
 
-
-
-const Pet = (props) => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, props.name),
-    React.createElement("h2", {}, props.animal),
-    React.createElement("h2", {}, props.breed),
-  ]);
-};
 
 const App = () => {
-  return React.createElement("div", {}, [
-    React.createElement("h1", {}, "Adopt Me!"),
-    React.createElement(Pet, {
-      name: "Luna",
-      animal: "Dog",
-      breed: "Havanese",
-    }),
-    React.createElement(Pet, {
-      name: "Pepper",
-      animal: "Bird",
-      breed: "Cockatooe",
-    }),
-    React.createElement(Pet, {
-      name: "Doink",
-      animal: "Cat",
-      breed: "Mix",
-    }),
-  ]);
-};
+    const theme = useState("darkblue");
+    return (
+        <StrictMode>
+            <ThemeContext.Provider value={theme}>
+                <BrowserRouter>
+                    <header>
+                        <Link to="/">Adopt Me!</Link>
+                    </header>
+                    <Routes>
+                        <Route path="/details/:id" element={<Details />} />
+                        <Route path="/" element={<SearchParams />} />
+                    </Routes>
+                </BrowserRouter>
+            </ThemeContext.Provider>
+        </StrictMode>
+    )
+}
 
-ReactDOM.render(React.createElement(App), document.getElementById("root"));
+
+render(<App />, document.getElementById("root"));
